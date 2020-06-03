@@ -33,3 +33,5 @@ do_install() {
 
 FILES_${PN} += "${sysconfdir}/modules-load.d/_${MACHINE}.conf"
 
+COMPATIBLE_MACHINE = "alphatriplehd"
+
