@@ -5,10 +5,6 @@ KERNEL_MODULE_AUTOLOAD += "xfs"
 # We know about rtc
 MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
 
-IMAGE_CMD_ubi_prepend = " \
-	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
-	"
-
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = "\
 	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer1.0-libav", "gst-ffmpeg", d)} \
 	sab-dvb-modules-${MACHINE} \
@@ -58,7 +54,8 @@ IMAGE_CMD_ubi_append = " \
 	rm -Rf ${IMAGEDIR}; \
 	"
 
-IMAGE_CMD_ubi_prepend = " \
+IMAGE_CMD_ubifs_prepend = " \
+	rm -Rf ${IMAGE_ROOTFS}/boot/*; \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 	"
 
