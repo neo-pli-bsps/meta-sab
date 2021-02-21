@@ -6,14 +6,12 @@ KERNEL_MODULE_AUTOLOAD += "xfs"
 MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = "\
-	${@bb.utils.contains("GST_VERSION", "1.0", "gstreamer1.0-libav", "gst-ffmpeg", d)} \
 	sab-dvb-modules-${MACHINE} \
 	kernel-vmlinux \
 	enigma2-plugin-extensions-hbbtv-${MACHINE} \
 	"
 
 MACHINE_EXTRA_RRECOMMENDS = " \
-	gst-plugin-dvbmediasink \
 	sab-blindscan-utils-${MACHINE} \
 	"
 
